@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: phonemarkt-app
+    image: phonemarkt-app/v1.0.0
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - phonemarkt
+    ports:
+      - "8080:80"
+
+networks:
+  frontend:
+    name: phonemarkt

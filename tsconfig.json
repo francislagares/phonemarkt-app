@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    /* Project Setup */
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "removeComments": true,
+    "downlevelIteration": true,
+
+    /* Strict Type-Checking */
+    "strict": true,
+
+    /* Linter Checks */
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+
+    "useDefineForClassFields": true,
+
+    /* Module Resolution */
+    "module": "ES2022",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+      "paths": {
+          "@/*": [
+              "src/*"
+          ]
+      }
+  },
+  "include": ["src"],
+  "exclude": ["./cypress.config.ts"],
+  "types": ["vitest/globals"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
