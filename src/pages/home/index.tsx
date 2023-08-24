@@ -1,20 +1,22 @@
+import ProductItem from '@/components/product';
 import useProducts from '@/hooks/useProducts';
-import Header from '@/layouts/header';
+import { Product } from '@/models/product';
+
+import classes from './home.module.scss';
 
 const Home = () => {
   const { data: products, isLoading, error } = useProducts();
-
-  console.log(products);
 
   if (isLoading) return 'Wait while we are fetching content...';
 
   if (error) throw error;
 
   return (
-    <>
-      <Header />
-      <h1>Product List</h1>
-    </>
+    <div className={classes.container}>
+      {products?.map((item: Product) => (
+        <ProductItem key={item.id} product={item} />
+      ))}
+    </div>
   );
 };
 

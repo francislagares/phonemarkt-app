@@ -1,0 +1,28 @@
+.product {
+  flex-basis: 25%;
+  margin-bottom: 5rem;
+  text-align: center;
+
+  h3 {
+    color: #007185;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0;
+  }
+
+  img {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .product {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .product {
+    flex-basis: 100%;
+  }
+}
