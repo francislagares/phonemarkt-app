@@ -10,8 +10,16 @@
     margin: 0;
   }
 
+  p {
+    color: #213547;
+  }
+
   img {
     margin-bottom: 1rem;
+  }
+
+  &__price {
+    font-weight: 700;
   }
 }
 

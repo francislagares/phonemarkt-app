@@ -5,3 +5,18 @@ export interface Product {
   price: string;
   imgUrl: string;
 }
+
+export interface ProductDetail {
+  brand: string;
+  model: string;
+  price: string;
+  imgUrl: string;
+  internalMemory: string[];
+  displayResolution: string;
+  primaryCamera: string[];
+  battery: string;
+  ram: string;
+  os: string;
+  weight: string;
+  dimentions: string;
+}

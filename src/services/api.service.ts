@@ -21,6 +21,17 @@ class ApiService<T> {
         ),
       );
   };
+
+  public getProduct = async (id: number | string) => {
+    return axiosInstance
+      .get<T>(this.endpoint + id)
+      .then(res => res.data)
+      .catch(error =>
+        console.log(
+          `Something went wrong while fetching the product: ${error}`,
+        ),
+      );
+  };
 }
 
 export default ApiService;

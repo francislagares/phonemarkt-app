@@ -1,0 +1,35 @@
+.productDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  @media (max-width: 425px) {
+    flex-direction: column; /* Display columns side by side in larger screens */
+  }
+}
+
+.productImage {
+  flex: 1;
+  margin: 100px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.productDescription {
+  flex: 2;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+}
