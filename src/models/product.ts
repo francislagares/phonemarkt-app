@@ -6,6 +6,16 @@ export interface Product {
   imgUrl: string;
 }
 
+export interface Color {
+  code: number;
+  name: string;
+}
+
+export interface Storage {
+  code: number;
+  name: string;
+}
+
 export interface ProductDetail {
   brand: string;
   model: string;
@@ -14,6 +24,7 @@ export interface ProductDetail {
   internalMemory: string[];
   displayResolution: string;
   primaryCamera: string[];
+  options: any;
   battery: string;
   ram: string;
   os: string;

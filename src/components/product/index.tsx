@@ -10,14 +10,14 @@ interface Props {
 
 const ProductItem = ({ product }: Props) => {
   return (
-    <div className={classes.product}>
+    <div className={classes.productCard}>
       <Link to={`/product/${product.id}`}>
         <img src={product.imgUrl} alt={product.brand} />
         <h3>{product.brand}</h3>
         <p>{product.model}</p>
-        <p>
+        <p className={classes.price}>
           Price:{' '}
-          <span className={classes.product__price}>{product.price}€</span>
+          <span>{product.price ? `${product.price}€` : 'not available'}</span>
         </p>
       </Link>
     </div>

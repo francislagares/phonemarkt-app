@@ -19,15 +19,15 @@ const Home = () => {
     setSearchTerm(e.target.value);
   };
 
-  console.log(searchTerm);
-
   return (
-    <div className={classes.container}>
+    <>
       <Search value={searchTerm} onChange={handleChange} />
-      {products?.map((item: Product) => (
-        <ProductItem key={item.id} product={item} />
-      ))}
-    </div>
+      <div className={classes.grid}>
+        {products?.map((item: Product) => (
+          <ProductItem key={item.id} product={item} />
+        ))}
+      </div>
+    </>
   );
 };
 

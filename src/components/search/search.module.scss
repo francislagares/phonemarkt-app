@@ -1,24 +1,32 @@
-.searchForm {
-  width: 100%;
-  padding-bottom: 4rem;
+.searchContainer {
   display: flex;
-  justify-content: end;
+  flex-direction: column-reverse; /* Reverse flex direction for mobile */
 
-  input {
-    padding: 0.75rem 1.25rem;
-  display: block;
-  border: 1px solid gray;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
-  color: #6b7280;
-
-  &::placeholder {
-    color: #6b7280;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end; /* Align input to the right */
   }
 
-  &:focus {
-    outline: none;
-  }
+  .searchInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Adjust the max width as needed */
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      color: #333;
+      transition: background-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }

@@ -1,5 +1,4 @@
 import classes from './search.module.scss';
-
 interface Props {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -7,13 +6,15 @@ interface Props {
 
 const Search = ({ value, onChange }: Props) => {
   return (
-    <div className={classes.searchForm}>
-      <input
-        type='search'
-        placeholder='Filter products...'
-        value={value}
-        onChange={onChange}
-      />
+    <div className={classes.searchContainer}>
+      <div className={classes.searchInput}>
+        <input
+          type='search'
+          placeholder='Search products...'
+          value={value}
+          onChange={onChange}
+        />
+      </div>
     </div>
   );
 };
