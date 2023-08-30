@@ -1,6 +1,7 @@
 .searchContainer {
   display: flex;
   flex-direction: column-reverse; /* Reverse flex direction for mobile */
+  padding: 2.5rem 0;
 
   @media (min-width: 768px) {
     flex-direction: row;

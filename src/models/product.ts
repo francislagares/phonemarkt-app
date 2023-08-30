@@ -17,6 +17,7 @@ export interface Storage {
 }
 
 export interface ProductDetail {
+  id: string;
   brand: string;
   model: string;
   price: string;
@@ -30,4 +31,10 @@ export interface ProductDetail {
   os: string;
   weight: string;
   dimentions: string;
+}
+
+export interface ProductCart {
+  id: string;
+  colorCode: number;
+  storageCode: number;
 }
