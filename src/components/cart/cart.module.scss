@@ -1,0 +1,23 @@
+.cartContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 2rem;
+
+  svg {
+    width: 30px;
+  }
+
+  .amountContainer {
+    position: absolute;
+    top: -0.6rem;
+    right: 1.4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #a29dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

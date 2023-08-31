@@ -1,0 +1,48 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 27.25rem;
+  border-radius: 0.5rem;
+  
+  
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    @media (max-width: 1024px) {
+      padding: 0;
+    }
+    
+    @media (min-width: 768px) {
+      gap: 0.75rem;
+    }
+
+    li {
+      display: inline-flex;
+      align-items: center;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        fill: currentColor;
+
+        @media (min-width: 768px) {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+
+        &.gray {
+          fill: #ccc;
+        }
+      }
+    }
+  }
+}
