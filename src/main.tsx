@@ -6,6 +6,8 @@ import ms from 'ms';
 import ReactDOM from 'react-dom/client';
 import { Provider as ShoppingCartProvider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { store } from './redux/store';
 import router from './routes';
@@ -24,13 +26,17 @@ const queryClient = new QueryClient({
   },
 });
 
+const persistor = persistStore(store);
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ShoppingCartProvider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      <PersistGate persistor={persistor}>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </PersistGate>
     </ShoppingCartProvider>
   </React.StrictMode>,
 );

@@ -6,7 +6,7 @@ const initialState = {
   cartItems: [] as ProductCart[],
 };
 
-const cartSlice = createSlice({
+const useCartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
@@ -21,6 +21,6 @@ const cartSlice = createSlice({
     },
   },
 });
-console.log(cartSlice);
-export const { addItemToCart } = cartSlice.actions;
-export default cartSlice.reducer;
+
+export const { addItemToCart } = useCartSlice.actions;
+export default useCartSlice.reducer;
