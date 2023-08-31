@@ -4,7 +4,7 @@
   align-items: center; /* Center vertically */
   padding: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     flex-direction: column;
     margin-top: 5rem;
 

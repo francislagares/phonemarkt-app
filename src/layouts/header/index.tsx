@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 
 import Breadcrumbs from '@/components/breadcrumbs';
+import { CartIcon } from '@/components/cart';
 import { RootState } from '@/redux/store';
 
 import classes from './header.module.scss';
@@ -18,7 +19,7 @@ const Header = () => {
           </Link>
           <Breadcrumbs />
         </div>
-        <div>{cartItems.length}</div>
+        <CartIcon cartQty={cartItems.length} />
       </header>
       <Outlet />
     </>

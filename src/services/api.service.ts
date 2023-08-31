@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { ProductCart } from '@/models/product';
+
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
@@ -31,6 +33,13 @@ class ApiService<T> {
           `Something went wrong while fetching the product: ${error}`,
         ),
       );
+  };
+
+  public addProduct = async (item: ProductCart) => {
+    return axiosInstance
+      .post<T>(this.endpoint, item)
+      .then(res => res.data)
+      .catch(error => console.log(`Error while adding item to cart: ${error}`));
   };
 }
 

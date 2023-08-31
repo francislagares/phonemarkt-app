@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import useAddProduct from '@/hooks/useAddProduct';
 import useProduct from '@/hooks/useProduct';
 import { Color, ProductDetail } from '@/models/product';
-import { addItemToCart } from '@/redux/features/cart/cartSlice';
+import { addItemToCart } from '@/redux/features/cart/useCartSlice';
 
 import classes from './product.module.scss';
 
@@ -26,6 +27,7 @@ const propertiesToShow: (keyof ProductDetail)[] = [
 const Product = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
+  const addProductMutation = useAddProduct();
   const { data: product, isLoading, error } = useProduct(productId || '');
   const [selectedColors, setSelectedColors] = useState<number>();
   const [selectedStorage, setSelectedStorage] = useState<number>();
@@ -82,17 +84,28 @@ const Product = () => {
     </label>
   ));
 
-  const handleClick = () => {
+  const handleAddProduct = async () => {
     if (selectedColors && selectedStorage && product) {
-      dispatch(
-        addItemToCart({
+      try {
+        const result = await addProductMutation.mutateAsync({
           id: product.id,
           colorCode: selectedColors,
           storageCode: selectedStorage,
-        }),
-      );
+        });
+
+        if (result) {
+          dispatch(
+            addItemToCart({
+              id: product.id,
+              colorCode: selectedColors,
+              storageCode: selectedStorage,
+            }),
+          );
+        }
+      } catch (error) {
+        console.error('Error adding item to cart:', error);
+      }
     }
-    console.log('Added to Cart');
   };
 
   if (isLoading) return null;
@@ -121,7 +134,7 @@ const Product = () => {
             <div className={classes.colorSelector}>{productColors}</div>
           </div>
           <div>
-            <button onClick={handleClick}>Add to Basket</button>
+            <button onClick={handleAddProduct}>Add to Basket</button>
           </div>
         </div>
       </div>
