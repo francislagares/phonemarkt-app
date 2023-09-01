@@ -23,6 +23,10 @@ FROM ${NODE} AS builder
 
 RUN apk update && apk add --no-cache nodejs yarn
 
+ENV VITE_API_BASE_URL='https://itx-frontend-test.onrender.com'
+ENV VITE_API_PRODUCTS_URL='/api/product/'
+ENV VITE_API_PRODUCT_CART='/api/cart/'
+
 WORKDIR /app
 
 COPY package.json .

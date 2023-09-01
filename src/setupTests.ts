@@ -1,10 +1,17 @@
 import '@testing-library/jest-dom/vitest';
 
 import { cleanup } from '@testing-library/react';
-import { afterEach, beforeAll, vi } from 'vitest';
+import axios from 'axios';
+import { afterAll, afterEach, beforeAll, vi } from 'vitest';
+
+import { server } from './test/mocks/server';
+
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
 // mocking methods which are not implemented in JSDOM
 beforeAll(() => {
+  server.listen();
+
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
     value: vi.fn().mockImplementation(query => ({
@@ -22,5 +29,8 @@ beforeAll(() => {
 
 // runs a cleanup after each test case (e.g. clearing jsdom)
 afterEach(() => {
+  server.resetHandlers();
   cleanup();
 });
+
+afterAll(() => server.close());
